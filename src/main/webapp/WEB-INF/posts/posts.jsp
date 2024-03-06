@@ -26,14 +26,14 @@
 				        </div>
 					</c:when>
 					<c:otherwise>
-						<div class="post">
-							<c:forEach items="${posts}" var="post">
+						<c:forEach items="${posts}" var="post">
+							<div class="post">
 								<div class="title"><a href="posts/${post.id}">Rabbit Care 101</a></div>
 								<div class="summary">${post.title}</div>
-								<div class="author">Jane Doe</div>
-								<div class="date">2024-03-06</div>
-							</c:forEach>
-						</div>
+								<div class="author">${post.createdUser}</div>
+								<div class="date">${post.createdDate}</div>
+							</div>
+						</c:forEach>
 					</c:otherwise>
 				</c:choose>
 	        </div>
