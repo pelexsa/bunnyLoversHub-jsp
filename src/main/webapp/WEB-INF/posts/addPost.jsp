@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rabbit Enthusiasts Bulletin Board</title>
 
+	<script type="text/javascript" src="/js/common/bunnyFunction.js"></script>
 	<script type="text/javascript" src="/js/posts/addPost.js"></script>
     <link rel="stylesheet" href="/css/common/button.css">
     <link rel="stylesheet" href="/css/posts/addPost.css">
@@ -21,7 +22,11 @@
     <main>
 	    <section id="post-creation">
 	        <h2>Create Your Post</h2>
-	        <form action="/posts/addPost" method="post">
+	        <form action="/posts/addPost"
+	              id="frm"
+	              method="post"
+	              enctype="multipart/form-data"
+	        >
 		        <select name="tag">
 			        <c:forEach items="${tags}" var="tag">
 						<option value="${tag.code}">${tag.name}</option>

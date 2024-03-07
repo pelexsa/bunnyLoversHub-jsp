@@ -7,11 +7,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 import jakarta.persistence.Table;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 import org.hibernate.annotations.Comment;
 
 @Getter
@@ -25,11 +25,12 @@ public class Posts extends BaseTimeEntity {
 	@Column(name = "post_id")
 	private Long id;
 
-	@Setter
 	private String title;
 
-	@Setter
+	@Lob
 	private String content;
+
+	private String fileDir;
 
 	private String delYn;
 

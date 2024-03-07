@@ -30,6 +30,8 @@ public class QPosts extends EntityPathBase<Posts> {
 
     public final StringPath delYn = createString("delYn");
 
+    public final StringPath fileDir = createString("fileDir");
+
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
     //inherited
