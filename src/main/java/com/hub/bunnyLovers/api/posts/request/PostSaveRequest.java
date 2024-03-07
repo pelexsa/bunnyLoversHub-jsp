@@ -10,6 +10,7 @@ import org.springframework.validation.annotation.Validated;
 public class PostSaveRequest {
 
 	private Long postId;
+	private String tag;
 
 	@NotNull
 	@NotEmpty

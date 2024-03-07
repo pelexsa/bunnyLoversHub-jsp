@@ -1,6 +1,6 @@
 package com.hub.bunnyLovers.entity.posts;
 
-import com.hub.bunnyLovers.application.common.CommonUtils;
+import com.hub.bunnyLovers.application.util.CommonUtils;
 import com.hub.bunnyLovers.entity.BaseTimeEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

@@ -13,10 +13,10 @@
     <main>
 	    <section id="bulletin-board">
 	        <div class="posts-header">
-	            <div class="title">Title</div>
-	            <div class="summary">Summary</div>
-	            <div class="author">Author</div>
-	            <div class="date">Date</div>
+		        <div class="no"><spring:message code="post.no"/></div>
+	            <div class="title"><spring:message code="post.title"/></div>
+	            <div class="createdUser"><spring:message code="post.createdUser"/></div>
+	            <div class="createdDate"><spring:message code="post.createdDate"/></div>
 	        </div>
 	        <div class="posts">
 				<c:choose>
@@ -28,10 +28,10 @@
 					<c:otherwise>
 						<c:forEach items="${posts}" var="post">
 							<div class="post">
-								<div class="title"><a href="posts/${post.id}">Rabbit Care 101</a></div>
-								<div class="summary">${post.title}</div>
-								<div class="author">${post.createdUser}</div>
-								<div class="date">${post.createdDate}</div>
+								<div class="no"><a href="posts/${post.id}">Rabbit Care 101</a></div>
+								<div class="title">${post.title}</div>
+								<div class="createdUser">${post.createdUser}</div>
+								<div class="createdDate">${post.createdDate}</div>
 							</div>
 						</c:forEach>
 					</c:otherwise>

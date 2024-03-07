@@ -1,4 +1,4 @@
-package com.hub.bunnyLovers.application.common;
+package com.hub.bunnyLovers.application.util;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

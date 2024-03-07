@@ -2,6 +2,9 @@ package com.hub.bunnyLovers.api.posts;
 
 import com.hub.bunnyLovers.api.posts.request.PostSaveRequest;
 import com.hub.bunnyLovers.api.posts.request.PostUpdateRequest;
+import com.hub.bunnyLovers.api.posts.response.PostTag;
+import com.hub.bunnyLovers.application.common.CommonService;
+import com.hub.bunnyLovers.application.common.response.CommonGroupResponse;
 import com.hub.bunnyLovers.application.post.PostService;
 import com.hub.bunnyLovers.application.post.ViewCountService;
 import com.hub.bunnyLovers.entity.posts.Posts;
@@ -26,6 +29,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class PostsController {
 
 	private final PostService postService;
+	private final CommonService commonService;
 	private final ViewCountService viewCountService;
 
 	@GetMapping
@@ -44,17 +48,23 @@ public class PostsController {
 
 	@GetMapping("/addPost")
 	public String showAddPostForm(Model model) {
+		List<CommonGroupResponse> commonGroup = commonService.getCommonGroup();
+		List<PostTag> tags = commonGroup.stream()
+			.filter(e -> e.getGroupCode().equals("POST_TAG"))
+			.map(e -> {
+				String code = e.getCode().replaceAll("POST_TAG_", "");
+				return new PostTag(code, e.getName());
+			})
+			.toList();
+
 //		model.addAttribute("post", new Post());
 //  model.addAttribute("categories", Arrays.asList(
 //      new Category(1, "일상"),
 //      new Category(2, "취미"),
 //      new Category(3, "IT")
 //  ));
-//  model.addAttribute("tags", Arrays.asList(
-//      new Tag(1, "Java"),
-//      new Tag(2, "Spring Boot"),
-//      new Tag(3, "JSP")
-//  ));
+
+		model.addAttribute("tags", tags);
 		return "posts/addPost";
 	}
 

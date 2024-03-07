@@ -1,7 +1,7 @@
 package com.hub.bunnyLovers.repository.post;
 
 import com.hub.bunnyLovers.entity.posts.Posts;
-import com.hub.bunnyLovers.entity.posts.QPost;
+import com.hub.bunnyLovers.entity.posts.QPosts;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import jakarta.persistence.EntityManager;
 import java.util.List;
@@ -15,20 +15,20 @@ public class PostRepositoryImpl implements PostRepositoryCustom {
 
 	@Override
 	public List<Posts> findPosts() {
-		QPost qPost = new QPost("q1");
+		QPosts qPosts = new QPosts("q1");
 		return query
-			.selectFrom(qPost)
-			.where(qPost.delYn.eq("N"))
+			.selectFrom(qPosts)
+			.where(qPosts.delYn.eq("N"))
 			.fetch();
 	}
 
 	@Override
 	public void deletePostById(Long id) {
-		QPost qPost = new QPost("q1");
+		QPosts qPosts = new QPosts("q1");
 		query
-			.update(qPost)
-			.set(qPost.delYn, "Y")
-			.where(qPost.id.eq(id))
+			.update(qPosts)
+			.set(qPosts.delYn, "Y")
+			.where(qPosts.id.eq(id))
 			.execute();
 	}
 

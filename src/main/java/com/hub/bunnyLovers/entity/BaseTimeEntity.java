@@ -1,6 +1,6 @@
 package com.hub.bunnyLovers.entity;
 
-import com.hub.bunnyLovers.application.common.CommonUtils;
+import com.hub.bunnyLovers.application.util.CommonUtils;
 import jakarta.persistence.Column;
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.MappedSuperclass;

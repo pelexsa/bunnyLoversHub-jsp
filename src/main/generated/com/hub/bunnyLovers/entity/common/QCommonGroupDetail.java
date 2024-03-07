@@ -7,6 +7,7 @@ import com.querydsl.core.types.dsl.*;
 import com.querydsl.core.types.PathMetadata;
 import javax.annotation.processing.Generated;
 import com.querydsl.core.types.Path;
+import com.querydsl.core.types.dsl.PathInits;
 
 
 /**
@@ -17,17 +18,23 @@ public class QCommonGroupDetail extends EntityPathBase<CommonGroupDetail> {
 
     private static final long serialVersionUID = 664245650L;
 
+    private static final PathInits INITS = PathInits.DIRECT2;
+
     public static final QCommonGroupDetail commonGroupDetail = new QCommonGroupDetail("commonGroupDetail");
 
     public final com.hub.bunnyLovers.entity.QBaseTimeEntity _super = new com.hub.bunnyLovers.entity.QBaseTimeEntity(this);
 
     public final StringPath code = createString("code");
 
-    public final DateTimePath<java.time.LocalDateTime> createdDate = createDateTime("createdDate", java.time.LocalDateTime.class);
+    public final QCommonGroup commonGroup;
+
+    //inherited
+    public final DateTimePath<java.time.LocalDateTime> createdDate = _super.createdDate;
 
     public final StringPath createdUser = createString("createdUser");
 
-    public final DateTimePath<java.time.LocalDateTime> modifiedDate = createDateTime("modifiedDate", java.time.LocalDateTime.class);
+    //inherited
+    public final DateTimePath<java.time.LocalDateTime> modifiedDate = _super.modifiedDate;
 
     public final StringPath modifiedUser = createString("modifiedUser");
 
@@ -36,15 +43,24 @@ public class QCommonGroupDetail extends EntityPathBase<CommonGroupDetail> {
     public final StringPath useYn = createString("useYn");
 
     public QCommonGroupDetail(String variable) {
-        super(CommonGroupDetail.class, forVariable(variable));
+        this(CommonGroupDetail.class, forVariable(variable), INITS);
     }
 
     public QCommonGroupDetail(Path<? extends CommonGroupDetail> path) {
-        super(path.getType(), path.getMetadata());
+        this(path.getType(), path.getMetadata(), PathInits.getFor(path.getMetadata(), INITS));
     }
 
     public QCommonGroupDetail(PathMetadata metadata) {
-        super(CommonGroupDetail.class, metadata);
+        this(metadata, PathInits.getFor(metadata, INITS));
+    }
+
+    public QCommonGroupDetail(PathMetadata metadata, PathInits inits) {
+        this(CommonGroupDetail.class, metadata, inits);
+    }
+
+    public QCommonGroupDetail(Class<? extends CommonGroupDetail> type, PathMetadata metadata, PathInits inits) {
+        super(type, metadata, inits);
+        this.commonGroup = inits.isInitialized("commonGroup") ? new QCommonGroup(forProperty("commonGroup")) : null;
     }
 
 }
