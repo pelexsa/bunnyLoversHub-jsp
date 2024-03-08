@@ -21,7 +21,7 @@
 <body>
     <main>
 	    <section id="post-creation">
-	        <h2>Create Your Post</h2>
+<%--	        <h2>Create Your Post</h2>--%>
 	        <form action="/posts/addPost"
 	              id="frm"
 	              method="post"

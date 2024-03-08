@@ -11,12 +11,11 @@ function summernoteInit() {
    	    lang: "ko-KR",					// 한글 설정
    	    placeholder: '최대 2048자까지 쓸 수 있습니다',	//placeholder 설정
         callbacks: {
-            onImageUpload: function (files, editor, welEditable) {
-                bunny.fileUpload.call(files, 'post',
-                    function () {
-                        $(this).summernote('editor.insertImage', url);
-                    }
-                );
+            onImageUpload: function (files) {
+                const self = this;
+                bunny.fileUpload.call(files, 'post', function (data) {
+                    $(self).summernote('editor.insertImage', data.url);
+                });
             },
         }
    	});

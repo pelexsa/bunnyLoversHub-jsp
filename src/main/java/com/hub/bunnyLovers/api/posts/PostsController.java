@@ -11,7 +11,6 @@ import com.hub.bunnyLovers.entity.posts.Posts;
 import java.util.List;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -40,10 +39,12 @@ public class PostsController {
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<Posts> findPostById(@PathVariable("id") Optional<Long> id)
+	public String findPostById(@PathVariable("id") Optional<Long> id, Model model)
 		throws Exception {
-		Posts posts = postService.findById(id);
-		return new ResponseEntity<>(posts, HttpStatus.OK);
+		// 게시물 없을때 처리
+		Posts post = postService.findById(id);
+		model.addAttribute("post", post);
+		return "posts/post";
 	}
 
 	@GetMapping("/addPost")

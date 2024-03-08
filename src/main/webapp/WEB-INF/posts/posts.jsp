@@ -28,7 +28,7 @@
 					<c:otherwise>
 						<c:forEach items="${posts}" var="post">
 							<div class="post">
-								<div class="no"><a href="posts/${post.id}">Rabbit Care 101</a></div>
+								<div class="no"><a href="posts/${post.id}">${post.id}</a></div>
 								<div class="title">${post.title}</div>
 								<div class="createdUser">${post.createdUser}</div>
 								<div class="createdDate">${post.createdDate}</div>

@@ -84,7 +84,7 @@ bunny.fileUpload = {
             contentType: false,
             cache: false,
             success: function (data, textStatus, xhr) {
-                return callBack(data);
+                return callback(data);
             },
             error: function (data, textStatus, error) {
                 alert('오류가 발생하였습니다. 관리자에게 문의해 주세요.');
